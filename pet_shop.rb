@@ -40,7 +40,24 @@ def find_pet_by_name(shop, name)
   end
   return nil
 end
-# def test_find_pet_by_name__returns_pet
-#   pet = find_pet_by_name(@pet_shop, "Arthur")
-#   assert_equal("Arthur", pet[:name])
-# end
+
+def remove_pet_by_name(shop, name)
+  for pet in shop[:pets]
+    if pet[:name] == name
+      shop[:pets].delete(pet)
+    end
+  end
+end
+#is it OK to update an array when you are looping through it
+
+def add_pet_to_stock(shop, new_pet)
+  shop[:pets] << new_pet
+end
+
+def customer_pet_count(customer)
+  return customer[:pets].length
+end
+
+def add_pet_to_customer(customer, new_pet)
+  customer[:pets] << new_pet
+end
