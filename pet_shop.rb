@@ -87,15 +87,28 @@ end
 #   end
 # end
 
-# all three selling to customer tests passing - inc not enough money
-def sell_pet_to_customer(shop, name, customer)
-  if name != nil
-    if customer_can_afford_pet(customer, name) == true
-      add_pet_to_customer(customer, name)
-      add_or_remove_cash(shop, name[:price])
+#all three selling to customer tests passing - inc not enough money
+# def sell_pet_to_customer(shop, name, customer)
+#   if name != nil
+#     if customer_can_afford_pet(customer, name) == true
+#       add_pet_to_customer(customer, name)
+#       add_or_remove_cash(shop, name[:price])
+#       increase_pets_sold(shop, 1)
+#       remove_pet_by_name(shop, name)
+#       customer[:cash] -= name[:price]
+#     end
+#   end
+# end
+
+#Now updated as input is pet, not the name of the pet.
+def sell_pet_to_customer(shop, pet, customer)
+  if pet != nil
+    if customer_can_afford_pet(customer, pet) == true
+      add_pet_to_customer(customer, pet)
+      add_or_remove_cash(shop, pet[:price])
       increase_pets_sold(shop, 1)
-      remove_pet_by_name(shop, name)
-      customer[:cash] -= name[:price]
+      remove_pet_by_name(shop, pet[:name])
+      customer[:cash] -= pet[:price]
     end
   end
 end
